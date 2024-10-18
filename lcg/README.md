@@ -16,6 +16,10 @@ where:
 - $m$ is the modulus,
 - $X_0$ is the seed or initial value.
 
+
+Assumption: $m > 0$ and $a < m, c < m, X_0 < m$
+
+
 Example:
 $a = 5$, $c = 1$, $m = 8$
 and 
@@ -70,12 +74,29 @@ Limited range of values: Since the modulus $m$ restricts the values to a finite 
 
 
 #
+The selection of the values for $a, c, m,$ and $X_0$ drastically affects the statistical properties and the cycle length.
 choose m large and a,c so that sequence length is equal to $m$
 
 If c = 0, the generator is often called a multiplicative congruential generator (MCG), or Lehmer RNG. If c ≠ 0, the method is called a mixed congruential generator.
 
 
+Most digital computers use a binary representation of numbers
+- Speed and efficiency are aided by a modulus, $m$, to be (or close to) a power of $2$.
+
+# characteristic of a good generator 
+The LCG has full period if and only if the following three conditions hold (Hull and Dobell, 1962): [^1]
+
+
+
+1. The only positive integer that (exactly) divides both $m$ and $c$ is $1$
+1. If $q$ is a prime number that divides $m$, then $q$ divides $a-1$
+1. If $4$ divides $m$, then $4$ divides $a-1$
+
 ## References
+
+1. [Prof. Dr. Mesut Güneş ▪ Ch. 6 Random-Number Generation](https://www.mi.fu-berlin.de/inf/groups/ag-tech/teaching/2012_SS/L_19540_Modeling_and_Performance_Analysis_with_Simulation/06.pdf)
+
+1. [Hull and Dobell’s first theorem – Howard Rudd](https://www.howardrudd.net/mathematics/hull-and-dobells-first-theorem/)
 1. [Linear congruential generator - Wikipedia](https://en.wikipedia.org/wiki/Linear_congruential_generator)
 1. [Linear Congruential Random Number Generators](https://www.youtube.com/watch?v=BYR5sbJHqsU)
 1. [Section II: Linear Congruential Generator I](https://pi.math.cornell.edu/~mec/Winter2009/Luo/Linear%20Congruential%20Generator/linear%20congruential%20gen1.html)
